@@ -5,6 +5,7 @@ This repository contains programs written for the higher-level programming langu
 ## Author :black_nib:
 * **Michael Aroworade**  <[mikearoworade](https://github.com/mikearoworade)>
 
+## Table of Contents :ledger:
 * [0x00. Python - Hello, World](./0x00-python-hello_world)
 * [0x01. Python - if/else, loops, functions](./0x01-python-if_else_loops_functions)
 * [0x02. Python - import & modules](./0x02-python-import_modules)
