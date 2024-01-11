@@ -1,6 +1,9 @@
-# Higher-level programming - Python
+# Higher-level programming - Python, Javascript and Databases.
 
-This repository contains programs written for the higher-level programming language
+This repository contains programs written for the higher-level programming language at ALX Software Engineering.The program starte off at learning common terminal based editors, EMACS and vi. We got acquainted with the famous and most widely used version control, Git. This particular repository focuses on Python, Javascript, databases and closely related high level languages and their respective frameworks.
+
+## Author :black_nib:
+* **Michael Aroworade**  <[mikearoworade](https://github.com/mikearoworade)>
 
 * [0x00. Python - Hello, World](./0x00-python-hello_world)
 * [0x01. Python - if/else, loops, functions](./0x01-python-if_else_loops_functions)
@@ -11,3 +14,7 @@ This repository contains programs written for the higher-level programming langu
 * [0x06. Python - Classes and Objects](./0x06-python-classes)
 * [0x07. Python - Test-driven development](./0x07-python-test_driven_development)
 * [0x08. Python - More Classes and Objects](./0x08-python-more_classes)
+* [0x09. Python - Everything is object](./0x09-python-everything_is_object)
+* [0x0A. Python - Inheritance](./0x0A-python-inheritance)
+* [0x0B. Python - Input/Output](./0x0B-python-input_output)
+* [0x0C. Python - Almost a circle](./0X0C-python-almost_a_circle)
