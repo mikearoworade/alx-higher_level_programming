@@ -95,8 +95,13 @@ class Rectangle(Base):
             print("")
             return
 
-        [print("*") for y in range(self.y)]
+        [print("") for y in range(self.y)]
         for h in range(self.height):
-            [print("*", end="") for x in range(self.x)]
+            [print("", end="") for x in range(self.x)]
             [print("#", end="") for width in range(self.width)]
             print("")
+
+    def __str__(self):
+        """Return the print() and str() representation of the Retangle."""
+        return "[Retangle] ({}) {}/{} - {}/{}".format(self.id, self.x, 
+                                                      self.y, self.width, self.height)
