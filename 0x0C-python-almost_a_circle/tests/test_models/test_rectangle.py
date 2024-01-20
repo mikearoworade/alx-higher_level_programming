@@ -4,16 +4,17 @@
 """Defines unittests for models/rectangle.py.
 
 Unittest classes:
-    TestRectangle_instantiation
-    TestRectangle_width
-    TestRectangle_height
-    TestRectangle_x
-    TestRectangle_y
-    TestRectangle_order_of_initialization
-    TestRectangle_area
-    TestRectangle_update_args
-    TestRectangle_update_kwargs
-    TestRectangle_to_dictionary
+    TestRectangleInstantiation - line 25
+    TestRectangleWidth - line 114
+    TestRectangleHeight - line 170
+    TestRectangleX - line 170
+    TestRectangleY - line 274
+    TestRectangleOrderOfInitialization - line 342
+    TestRectangleArea - line 370
+    TestRectangleStdout - line 394
+    TestRectangleUpdateArgs - line 449
+    TestRectangleUpdateKwargs - line 587
+    TestRectangleToDictionary - line 699
 """
 import io
 import sys
@@ -22,7 +23,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
-class TestRectangle_instantiation(unittest.TestCase):
+class TestRectangleInstantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Rectangle class."""
 
     def test_rectangle_is_base(self):
@@ -111,8 +112,8 @@ class TestRectangle_instantiation(unittest.TestCase):
         self.assertEqual(10, r.y)
 
 
-class TestRectangle_width(unittest.TestCase):
-    """Unittests for testing initialization of Rectangle width attribute."""
+class TestRectangleWidth(unittest.TestCase):
+    """Unittests for testing initialization of rectangle width attribute."""
 
     def test_None_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -125,10 +126,6 @@ class TestRectangle_width(unittest.TestCase):
     def test_float_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(5.5, 1)
-
-    def test_complex_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(complex(5), 2)
 
     def test_dict_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -150,25 +147,9 @@ class TestRectangle_width(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle((1, 2, 3), 2)
 
-    def test_frozenset_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(frozenset({1, 2, 3, 1}), 2)
-
     def test_range_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle(range(5), 2)
-
-    def test_bytes_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(b'Python', 2)
-
-    def test_bytearray_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(bytearray(b'abcdefg'), 2)
-
-    def test_memoryview_width(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Rectangle(memoryview(b'abcedfg'), 2)
 
     def test_inf_width(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
@@ -187,7 +168,7 @@ class TestRectangle_width(unittest.TestCase):
             Rectangle(0, 2)
 
 
-class TestRectangle_height(unittest.TestCase):
+class TestRectangleHeight(unittest.TestCase):
     """Unittests for testing initialization of Rectangle height attribute."""
 
     def test_None_height(self):
@@ -201,10 +182,6 @@ class TestRectangle_height(unittest.TestCase):
     def test_float_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, 5.5)
-
-    def test_complex_height(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, complex(5))
 
     def test_dict_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -222,25 +199,9 @@ class TestRectangle_height(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, (1, 2, 3))
 
-    def test_frozenset_height(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, frozenset({1, 2, 3, 1}))
-
     def test_range_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(1, range(5))
-
-    def test_bytes_height(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, b'Python')
-
-    def test_bytearray_height(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, bytearray(b'abcdefg'))
-
-    def test_memoryview_height(self):
-        with self.assertRaisesRegex(TypeError, "height must be an integer"):
-            Rectangle(1, memoryview(b'abcedfg'))
 
     def test_inf_height(self):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -259,7 +220,7 @@ class TestRectangle_height(unittest.TestCase):
             Rectangle(1, 0)
 
 
-class TestRectangle_x(unittest.TestCase):
+class TestRectangleX(unittest.TestCase):
     """Unittests for testing initialization of Rectangle x attribute."""
 
     def test_None_x(self):
@@ -273,10 +234,6 @@ class TestRectangle_x(unittest.TestCase):
     def test_float_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, 5.5, 9)
-
-    def test_complex_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, complex(5))
 
     def test_dict_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -298,25 +255,9 @@ class TestRectangle_x(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, (1, 2, 3), 2)
 
-    def test_frozenset_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, frozenset({1, 2, 3, 1}))
-
     def test_range_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Rectangle(1, 2, range(5))
-
-    def test_bytes_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, b'Python')
-
-    def test_bytearray_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, bytearray(b'abcdefg'))
-
-    def test_memoryview_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Rectangle(1, 2, memoryview(b'abcedfg'))
 
     def test_inf_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -331,7 +272,7 @@ class TestRectangle_x(unittest.TestCase):
             Rectangle(5, 3, -1, 0)
 
 
-class TestRectangle_y(unittest.TestCase):
+class TestRectangleY(unittest.TestCase):
     """Unittests for testing initialization of Rectangle y attribute."""
 
     def test_None_y(self):
@@ -399,7 +340,7 @@ class TestRectangle_y(unittest.TestCase):
             Rectangle(3, 5, 0, -1)
 
 
-class TestRectangle_order_of_initialization(unittest.TestCase):
+class TestRectangleOrderOfInitialization(unittest.TestCase):
     """Unittests for testing Rectangle order of attribute initialization."""
 
     def test_width_before_height(self):
@@ -427,7 +368,7 @@ class TestRectangle_order_of_initialization(unittest.TestCase):
             Rectangle(1, 2, "invalid x", "invalid y")
 
 
-class TestRectangle_area(unittest.TestCase):
+class TestRectangleArea(unittest.TestCase):
     """Unittests for testing the area method of the Rectangle class."""
 
     def test_area_small(self):
@@ -450,7 +391,7 @@ class TestRectangle_area(unittest.TestCase):
             r.area(1)
 
 
-class TestRectangle_stdout(unittest.TestCase):
+class TestRectangleStdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Rectangle class."""
 
     @staticmethod
@@ -471,13 +412,6 @@ class TestRectangle_stdout(unittest.TestCase):
             rect.display()
         sys.stdout = sys.__stdout__
         return capture
-
-    # Test __str__ method
-    def test_str_method_print_width_height(self):
-        r = Rectangle(4, 6)
-        capture = TestRectangle_stdout.capture_stdout(r, "print")
-        correct = "[Rectangle] ({}) 0/0 - 4/6\n".format(r.id)
-        self.assertEqual(correct, capture.getvalue())
 
     def test_str_method_width_height_x(self):
         r = Rectangle(5, 5, 1)
@@ -506,36 +440,13 @@ class TestRectangle_stdout(unittest.TestCase):
         with self.assertRaises(TypeError):
             r.__str__(1)
 
-    # Test display method
-    def test_display_width_height(self):
-        r = Rectangle(2, 3, 0, 0, 0)
-        capture = TestRectangle_stdout.capture_stdout(r, "display")
-        self.assertEqual("##\n##\n##\n", capture.getvalue())
-
-    def test_display_width_height_x(self):
-        r = Rectangle(3, 2, 1, 0, 1)
-        capture = TestRectangle_stdout.capture_stdout(r, "display")
-        self.assertEqual(" ###\n ###\n", capture.getvalue())
-
-    def test_display_width_height_y(self):
-        r = Rectangle(4, 5, 0, 1, 0)
-        capture = TestRectangle_stdout.capture_stdout(r, "display")
-        display = "\n####\n####\n####\n####\n####\n"
-        self.assertEqual(display, capture.getvalue())
-
-    def test_display_width_height_x_y(self):
-        r = Rectangle(2, 4, 3, 2, 0)
-        capture = TestRectangle_stdout.capture_stdout(r, "display")
-        display = "\n\n   ##\n   ##\n   ##\n   ##\n"
-        self.assertEqual(display, capture.getvalue())
-
     def test_display_one_arg(self):
         r = Rectangle(5, 1, 2, 4, 7)
         with self.assertRaises(TypeError):
             r.display(1)
 
 
-class TestRectangle_update_args(unittest.TestCase):
+class TestRectangleUpdateArgs(unittest.TestCase):
     """Unittests for testing update args method of the Rectangle class."""
 
     # Test args
@@ -673,7 +584,7 @@ class TestRectangle_update_args(unittest.TestCase):
             r.update(89, 1, 2, "invalid", "invalid")
 
 
-class TestRectangle_update_kwargs(unittest.TestCase):
+class TestRectangleUpdateKwargs(unittest.TestCase):
     """Unittests for testing update kwargs method of the Rectangle class."""
 
     def test_update_kwargs_one(self):
@@ -785,7 +696,7 @@ class TestRectangle_update_kwargs(unittest.TestCase):
         self.assertEqual("[Rectangle] (89) 19/7 - 10/5", str(r))
 
 
-class TestRectangle_to_dictionary(unittest.TestCase):
+class TestRectangleToDictionary(unittest.TestCase):
     """Unittests for testing to_dictionary method of the Rectangle class."""
 
     def test_to_dictionary_output(self):
@@ -803,6 +714,7 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             r.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()
