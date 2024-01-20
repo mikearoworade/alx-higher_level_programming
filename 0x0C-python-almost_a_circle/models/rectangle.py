@@ -68,7 +68,7 @@ class Rectangle(Base):
         if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueError("x must be > 0")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -103,7 +103,7 @@ class Rectangle(Base):
 
     def __str__(self):
         """Return the print() and str() representation of the Retangle."""
-        return "[Retangle] ({}) {}/{} - {}/{}".format(self.id, self.x, 
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, 
                                                       self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
