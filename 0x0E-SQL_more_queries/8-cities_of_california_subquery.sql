@@ -7,3 +7,4 @@ SELECT `id`, `name`
 	  FROM `states`
 	 WHERE `name` = "California")
  ORDER BY `id`;
+clear
